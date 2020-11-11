@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>bundle</key>
+		<string>AerialChanger</string>
+		<key>cell</key>
+		<string>PSLinkCell</string>
+		<key>detail</key>
+		<string>AerialChangerListController</string>
+		<key>icon</key>
+		<string>AerialChanger.png</string>
+		<key>isController</key>
+		<integer>1</integer>
+		<key>label</key>
+		<string>AerialChanger</string>
+		<key>description</key>
+		<string>&quot;And wisdom and knowledge shall be the stability of thy times, and strength of salvation: the fear of the Lord is his treasure.&quot; - Isaiah 33:6 (KJV)  </string>
+	</dict>
+</dict>
+</plist>

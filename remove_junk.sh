@@ -1,0 +1,1 @@
+../hidemydocktv/remove_junk.sh

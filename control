@@ -1,0 +1,10 @@
+Package: com.ikilledappl3.aerialchanger
+Name: AerialChanger
+Depends: mobilesubstrate, preferenceloader, firmware (>= 12.0), com.nito.breezy (>= 2.5.2-1), com.imore.tvosavplayer (>= 1.0-2), com.nito.ethereal
+Version: 1.0-1
+Architecture: appletvos-arm64
+Description: Custom video screen savers for tvOS!
+Depiction: https://toxicappl3inc.github.io/tvrepo/depictions/AerialChanger/AerialChanger.json
+Maintainer: iKilledAppl3
+Author: iKilledAppl3
+Section: Tweaks
