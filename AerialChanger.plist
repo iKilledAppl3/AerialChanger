@@ -1,1 +1,9 @@
-{ Filter = { Bundles = ( "com.apple.TVIdleScreen" ); }; }
+{
+	Filter = {
+		Bundles = (
+			"com.apple.IdleScreen",
+			"com.apple.IdleScreenUI",
+			"com.apple.TVIdleScreen",
+		);
+	};
+}

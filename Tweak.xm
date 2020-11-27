@@ -6,7 +6,6 @@
 
 #import "AerialChanger.h"
 
-
 %hook TVPURLMediaItem 
 
 -(NSURL *)url {
@@ -33,6 +32,37 @@
 }
 %end
 
+// tvOS 14
+%hook TVISAerialAsset
+-(NSURL *)localAssetURL {
+	if (kEnabled) {
+		if (@available(tvOS 14, *)) {
+			return [NSURL fileURLWithPath:kVideoPath];
+		}
+
+		else {
+			return %orig;
+		}
+	}
+
+	else {
+		return %orig;
+	}
+}
+%end
+
+%hook IdleScreenUILabel 
+-(void)layoutSubviews {
+	if (kEnabled) {
+		[self removeFromSuperview];
+	}
+
+	else {
+		%orig;
+	}
+}
+%end
+
 // Load preferences to make sure changes are written to the plist
 static void loadPrefs() {
 
@@ -46,4 +76,8 @@ static void loadPrefs() {
 %ctor {
   CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback) loadPrefs, CFSTR("com.ikilledappl3.aerialchanger.prefschanged"), NULL, CFNotificationSuspensionBehaviorDeliverImmediately);
   loadPrefs();
+
+  // Nice try Apple #checkm8
+    %init(IdleScreenUILabel=objc_getClass("IdleScreenUI.AerialLocationLabelUIView"));
+
  }

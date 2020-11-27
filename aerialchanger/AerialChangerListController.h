@@ -17,7 +17,7 @@ NSArray *directoryContent;
 // Make sure our path is specified so our tweak knows where to store all of the settings :)
 #define PLIST_PATH @"/var/mobile/Library/Preferences/com.ikilledappl3.aerialchanger.plist"
 
-//preferences interface notice that it is of Tyoe TSKViewController and not of PSListController!
+//preferences interface notice that it is of Type TSKViewController and not of PSListController!
 @interface AerialChangerListController : TSKViewController {
     
 }

@@ -67,3 +67,14 @@ NSString *kChosenScreensaver;
 @property(retain, nonatomic) UILabel *titleLabel;
 -(void)layoutSubviews;
  @end
+
+// tvOS 14 Idle Screen stuff
+@interface ISUIResources : NSObject
++(id)localizedStringForKey:(id)arg1 ;
++(id)defaultAerialURLWithOptions:(long long)arg1 ;
++(id)defaultAerialURL;
+@end
+
+@interface IdleScreenUILabel : UIView
+-(void)layoutSubviews;
+@end 
