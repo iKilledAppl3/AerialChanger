@@ -1,4 +1,4 @@
-/Users/ikilledappl3/tweaks/tvostweaks/aerialchanger/.theos/obj/appletv/arm64/AerialChangerListController.mm.ffa3fa69.o: \
+/Users/ikilledappl3/tweaks/tvOSTweaks/aerialchanger/.theos/obj/appletv/arm64/AerialChangerListController.mm.3feda855.o: \
   AerialChangerListController.mm /Users/ikilledappl3/theos/Prefix.pch \
   /Users/ikilledappl3/theos/vendor/include/_Prefix/BackwardsCompat.h \
   /Users/ikilledappl3/theos/vendor/include/HBLog.h \

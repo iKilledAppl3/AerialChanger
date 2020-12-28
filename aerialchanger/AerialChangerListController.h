@@ -11,7 +11,7 @@ TSKSettingItem *kRespringButton;
 
 
 //important stuff my boy!
-// loads the screensavers from a path and sets the song to the plist file!
+// loads the screensavers from a path and sets the screensaver to the plist file!
 NSArray *directoryContent;
 
 // Make sure our path is specified so our tweak knows where to store all of the settings :)

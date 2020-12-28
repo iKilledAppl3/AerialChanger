@@ -24,7 +24,7 @@ inline NSString *GetPrefVal(NSString *key){
     kScreensavers = [TSKSettingItem multiValueItemWithTitle:@"Custom Screen Savers" description:@"Choose your screen saver. \n You can AirDrop them to Ethereal and select them here." representedObject:facade keyPath:@"kChosenScreensaver" availableValues:directoryContent];
 
     // Respring Button here baby! No documenation found so I had to figure this one out myself :P
-    kRespringButton = [TSKSettingItem actionItemWithTitle:@"Respring" description:@"Apply Changes with a respring! \n Copyright 2020 J.K. Hayslip (iKilledAppl3) & iKilledAppl3 LLC. \n All rights reserved." representedObject:facade keyPath:PLIST_PATH target:self action:@selector(doAFancyRespring)];
+    kRespringButton = [TSKSettingItem actionItemWithTitle:@"Respring" description:@"Apply Changes with a respring! \n Copyright 2020 - 2021 J.K. Hayslip (iKilledAppl3) & iKilledAppl3 LLC. \n All rights reserved." representedObject:facade keyPath:PLIST_PATH target:self action:@selector(doAFancyRespring)];
     
     
     TSKSettingGroup *group = [TSKSettingGroup groupWithTitle:@"Enable Tweak" settingItems:@[kEnabled]];
@@ -102,7 +102,7 @@ inline NSString *GetPrefVal(NSString *key){
     
     TSKPreviewViewController *item = [super previewForItemAtIndexPath:indexPath];
     
-    NSString *imagePath = [[NSBundle bundleForClass:self.class] pathForResource:@"AerialChanger-Header" ofType:@"png"];
+    NSString *imagePath = [[NSBundle bundleForClass:self.class] pathForResource:@"AerialChanger" ofType:@"png"];
     UIImage *icon = [UIImage imageWithContentsOfFile:imagePath];
     if (icon != nil) {
         TSKVibrantImageView *imageView = [[TSKVibrantImageView alloc] initWithImage:icon];
