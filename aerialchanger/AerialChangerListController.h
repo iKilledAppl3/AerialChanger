@@ -1,4 +1,5 @@
 #import "Common.h"
+#import "AerialChangerVideoViewController.h"
 
 // statically call the item
 TSKSettingItem *kEnabled;
@@ -9,7 +10,6 @@ TSKSettingItem *kScreensavers;
 // Respring Button
 TSKSettingItem *kRespringButton;
 
-
 //important stuff my boy!
 // loads the screensavers from a path and sets the screensaver to the plist file!
 NSArray *directoryContent;
@@ -18,12 +18,9 @@ NSArray *directoryContent;
 #define PLIST_PATH @"/var/mobile/Library/Preferences/com.ikilledappl3.aerialchanger.plist"
 
 //preferences interface notice that it is of Type TSKViewController and not of PSListController!
-@interface AerialChangerListController : TSKViewController {
-    
-}
+@interface AerialChangerListController : TSKViewController
 @property (nonatomic, strong) UIBlurEffect *respringBlur;
 @property (nonatomic, strong) UIVisualEffectView *respringEffectView;
-@property (nonatomic, strong) UIWindow *mainAppRootWindow;
 @end
 
 

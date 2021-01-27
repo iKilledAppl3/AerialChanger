@@ -42,16 +42,17 @@ inline NSString *GetPrefVal(NSString *key){
 }
 
 -(void)doAFancyRespring {
-    self.mainAppRootWindow = [UIApplication sharedApplication].keyWindow;
     self.respringBlur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     self.respringEffectView = [[UIVisualEffectView alloc] initWithEffect:self.respringBlur];
-    self.respringEffectView.frame = [[UIScreen mainScreen] bounds];
-    [self.mainAppRootWindow addSubview:self.respringEffectView];
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:5.0];
-    [self.respringEffectView setAlpha:0];
-    [UIView commitAnimations];
-    [self performSelector:@selector(respring) withObject:nil afterDelay:3.0];
+    self.respringEffectView.frame = self.view.frame;
+    [self.respringEffectView setAlpha:0.0];
+    [[self view] addSubview:self.respringEffectView];
+
+	 [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [self.respringEffectView setAlpha:1.0];
+    } completion:^(BOOL finished) {
+        [self respring];
+    }];
 
 }
 
@@ -75,40 +76,19 @@ inline NSString *GetPrefVal(NSString *key){
     
     testObject.headerText = @"AerialChanger";
     testObject.initialText = [[self ourPreferences] stringForKey:item.keyPath];
-    
-    if ([testObject respondsToSelector:@selector(setEditingDelegate:)]){
-        [testObject setEditingDelegate:self];
-    }
-    [testObject setEditingItem:item];
+
     [self.navigationController pushViewController:testObject animated:TRUE];
 }
-
-- (void)editingController:(id)arg1 didCancelForSettingItem:(TSKSettingItem *)arg2 {
-    [super editingController:arg1 didCancelForSettingItem:arg2];
-}
-- (void)editingController:(id)arg1 didProvideValue:(id)arg2 forSettingItem:(TSKSettingItem *)arg3 {
-    [super editingController:arg1 didProvideValue:arg2 forSettingItem:arg3];
-    
-    TVSPreferences *prefs = [TVSPreferences preferencesWithDomain:@"com.ikilledappl3.aerialchanger"];
-    
-    [prefs setObject:arg2 forKey:arg3.keyPath];
-    [prefs synchronize];
-    
-}
-
 
 // This is to show our tweak's icon instead of the boring Apple TV logo :)
 -(id)previewForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     TSKPreviewViewController *item = [super previewForItemAtIndexPath:indexPath];
-    
-    NSString *imagePath = [[NSBundle bundleForClass:self.class] pathForResource:@"AerialChanger" ofType:@"png"];
-    UIImage *icon = [UIImage imageWithContentsOfFile:imagePath];
-    if (icon != nil) {
-        TSKVibrantImageView *imageView = [[TSKVibrantImageView alloc] initWithImage:icon];
-        [item setContentView:imageView];
+
+    AerialChangerVideoViewController *videoPreviewController = [[AerialChangerVideoViewController alloc] init];
+    videoPreviewController.view.frame = self.view.frame;
+    [item setContentView:videoPreviewController.view];
         
-    }
     
     return item;
     
